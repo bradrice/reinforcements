@@ -1,0 +1,14 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass";
+
+button.list-group-item.incorrect {
+  background-color: #f2dede;
+}
+
+button.list-group-item.correct {
+  background-color: #dff0d8;
+}

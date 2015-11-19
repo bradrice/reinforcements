@@ -1,0 +1,49 @@
+[
+  {
+    "id": "12",
+    "type": "multi",
+    "numscreens": "4",
+    "screens": [
+      {
+        "question": "The Device that supports the mill from underneath can be adjusted vertically is the:",
+        "answers": [
+          "Head",
+          "Worktable",
+          "Column",
+          "Knee"
+        ],
+        "correct": "Knee"
+      },
+      {
+        "question": "The vertical support, or backbone, of a milling machine is the:",
+        "answers": [
+          "Head",
+          "Worktable",
+          "Column",
+          "Knee"
+        ],
+        "correct": "Column"
+      },
+      {
+        "question": "The part of the milling machine that holds the spindle is the:",
+        "answers": [
+          "Head",
+          "Worktable",
+          "Column",
+          "Knee"
+        ],
+        "correct": "Worktable"
+      },
+      {
+        "question": "The machine component that supports the workpiece and any workholding devices during machining is the:",
+        "answers": [
+          "Head",
+          "Worktable",
+          "Column",
+          "Knee"
+        ],
+        "correct": "Head"
+      }
+    ]
+  }
+]

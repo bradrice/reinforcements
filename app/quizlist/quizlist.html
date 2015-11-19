@@ -1,0 +1,5 @@
+<p>Current items</p>
+    <ul class="list-group">
+        <li ng-repeat="el in course.list" class="list-group-item">{{el}}<a ui-sref="view.id({ id: el })" class="btn btn-default">Preview:</a> <a ui-sref="edit.id({id: el})" class="btn btn-default">Edit</a></li>
+    </ul>
+

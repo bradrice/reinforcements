@@ -1,0 +1,7 @@
+<h4>{{id}}</h4>
+<div class="well" ng-repeat="screen in data.screens">
+    <h4>{{screen.question}}</h4>
+    <div class="list-group">
+        <answer ng-repeat="item in screen.answers"></answer>
+    </div>
+</div>
