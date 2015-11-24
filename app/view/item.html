@@ -1,7 +1,5 @@
-<h4>{{id}}</h4>
-<div class="well" ng-repeat="screen in data.screens">
-    <h4>{{screen.question}}</h4>
-    <div class="list-group">
-        <answer ng-repeat="item in screen.answers"></answer>
-    </div>
+<h4>{{data.lessontitle}} - Id: {{id}}</h4>
+<screen ng-repeat="screen in data.screens" index="{{$index}}" ng-model="models.success"></screen>
+<div class="congratulations well" style="display: none;">
+    <h2>Congratulations, you have completed the questions</h2>
 </div>

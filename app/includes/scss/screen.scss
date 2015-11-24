@@ -12,3 +12,13 @@ button.list-group-item.incorrect {
 button.list-group-item.correct {
   background-color: #dff0d8;
 }
+
+screen div.well, div.congratulations {
+  background-color: #718EA4;
+  .list-group-item:last-child {
+    opacity: .8;
+  }
+  h1, h2, h4 {
+    color: #fff;
+  }
+}

@@ -6,26 +6,96 @@ var myApp = angular.module('myApp', [
     'myApp.login',
     'myApp.view',
     'myApp.quizlist',
-    'myApp.edit'
+    'myApp.edit',
+    "firebase"
 ]
 );
 
-myApp.service("getCourseService", function GetCourse($http){
-    var getCourseService = {
-        async: function() {
-            // $http returns a promise, which has a then function, which also returns a promise
-            var promise = $http.get('data/courses.json').then(function (response) {
-                // The then function here is an opportunity to modify the response
-                //console.log(response);
-                // The return value gets picked up by the then in the controller.
-                return response.data[0];
-            });
-            // Return the promise to the controller
-            return promise;
-        }
+myApp.constant('FIREBASE_URI', 'https://tureinforcements.firebaseio.com/');
+
+myApp.factory("getCourseService", ['$firebaseObject', 'FIREBASE_URI',  function GetCourse($firebaseObject, FIREBASE_URI){
+    var ref = new Firebase(FIREBASE_URI);
+    var items = $firebaseObject(ref);
+
+    var getItems = function () {
+        return items;
     };
-    return getCourseService;
-});
+
+    var addItem = function (item) {
+        items.$add(item);
+    };
+
+    var updateItem = function (id) {
+        items.$save(id);
+    };
+
+    var removeItem = function (id) {
+        items.$remove(id);
+    };
+
+    //var getItem = function (id) {
+    //    getItems();
+    //    items.$loaded().then(function(x) {
+    //        var data = x.$getRecord(id);
+    //        console.log(data);
+    //    }).catch(function(error) {
+    //        console.log("Error:", error);
+    //    });
+    //};
+    //
+    //var updateChildItem = function (itemId, item) {
+    //    return $firebaseObject(ref.child('items').child(itemId)).update(item);
+    //};
+    //
+    //var deleteChildItem = function (item) {
+    //    return items.$remove(item);
+    //};
+
+    return {
+        getItems: getItems,
+        addItem: addItem,
+        updateItem: updateItem,
+        removeItem: removeItem
+        //getItem: getItem,
+        //updateChildItem: updateChildItem,
+        //deleteChildItem: deleteChildItem
+    }
+}]);
+
+myApp.factory("getLessonService", ['$firebaseObject', 'FIREBASE_URI',  function GetLesson($firebaseObject, FIREBASE_URI){
+
+    var ref, item;
+
+    var getItem = function (id) {
+        ref = new Firebase(FIREBASE_URI + id);
+        item = $firebaseObject(ref);
+        return item;
+    };
+
+    var addItem = function (item) {
+        item.$add(item);
+    };
+
+    var updateItem = function (id) {
+        item.$save(id);
+    };
+
+    var removeItem = function (id) {
+        item.$remove(id);
+    };
+
+    return {
+        getItem: getItem,
+        addItem: addItem,
+        updateItem: updateItem,
+        removeItem: removeItem
+    }
+}]);
+
+
+
+
+
 
 myApp.config(function($stateProvider, $urlRouterProvider) {
     //
@@ -47,32 +117,22 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
         .state('view.id', {
             url: "/:id",
             templateUrl: "view/item.html",
-            controller: function($scope, $stateParams, getCourseService) {
-                $scope.id = $stateParams.id;
-                getCourseService.async().then(function(d) {
-                    $scope.data = d;
-                    //console.log($scope.data);
-                });
-            }
+            controller: "View1Ctrl"
         })
         .state('quizlist', {
             url: "/quizlist",
             templateUrl: "quizlist/quizlist.html",
-            controller: 'QuizListCtrl',
-            controllerAs: 'course'
+            controller: 'QuizListCtrl'
         })
         .state('edit', {
             url: "/edit",
             templateUrl: "edit/edit.html",
-            controller: 'EditCtrl',
-            controllerAs: 'course'
+            controller: 'EditCtrl'
         })
         .state('edit.id', {
             url: "/:id",
             templateUrl: "edit/item.html",
-            controller: function($scope, $stateParams) {
-                $scope.id = $stateParams.id;
-            }
+            controller: "EditCtrl"
         });
 })
     .constant('AUTH_EVENTS', {
@@ -139,3 +199,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
             $scope.currentUser = user;
         };
     });
+
+function tuscreen(fbname){
+    this.firebase = new Firebase("https://"+ fbname +"firebaseio.com/");
+}

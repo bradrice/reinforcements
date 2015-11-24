@@ -1,5 +1,4 @@
-[
-  {
+[{
     "type": "multi",
     "numscreens": "4",
     "screens": [
@@ -44,5 +43,40 @@
         "correct": "0"
       }
     ]
-  }
-]
+  },
+  {
+    "type": "multi",
+    "numscreens": "3",
+    "screens": [
+      {
+        "question": "The Wheel of Fortune show host is:",
+        "answers": [
+          "Vanna White",
+          "John Doe",
+          "Pat Sajak",
+          "Henry Winkle"
+        ],
+        "correct": "2"
+      },
+      {
+        "question": "The Jeopardy show host is:",
+        "answers": [
+          "Alex Trebek",
+          "Larry Toffer",
+          "Marc Summers",
+          "Ben Alexander"
+        ],
+        "correct": "2"
+      },
+      {
+        "question": "The Family Fued show host is:",
+        "answers": [
+          "Louie Anderson",
+          "Jim Bowen",
+          "Wayne Brady",
+          "Nick Clooney"
+        ],
+        "correct": "1"
+      }
+    ]
+  }]

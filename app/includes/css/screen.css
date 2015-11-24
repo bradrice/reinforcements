@@ -11,3 +11,16 @@ button.list-group-item.incorrect {
 button.list-group-item.correct {
   background-color: #dff0d8;
 }
+
+/* line 16, ../scss/screen.scss */
+screen div.well, div.congratulations {
+  background-color: #718EA4;
+}
+/* line 18, ../scss/screen.scss */
+screen div.well .list-group-item:last-child, div.congratulations .list-group-item:last-child {
+  opacity: .8;
+}
+/* line 21, ../scss/screen.scss */
+screen div.well h1, screen div.well h2, screen div.well h4, div.congratulations h1, div.congratulations h2, div.congratulations h4 {
+  color: #fff;
+}

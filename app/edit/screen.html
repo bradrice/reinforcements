@@ -1,0 +1,8 @@
+<div class="well">
+    <input type="text" ng-model="screen.question" class="form-control" />
+    <h4>{{screen.question}}</h4>
+    <div class="list-group form-inline">
+        <div>Correct? - Answer</div>
+        <editanswer ng-repeat="item in screen.answers"></editanswer>
+    </div>
+</div>

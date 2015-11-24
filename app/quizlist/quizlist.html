@@ -1,5 +1,23 @@
 <p>Current items</p>
-    <ul class="list-group">
-        <li ng-repeat="el in course.list" class="list-group-item">{{el}}<a ui-sref="view.id({ id: el })" class="btn btn-default">Preview:</a> <a ui-sref="edit.id({id: el})" class="btn btn-default">Edit</a></li>
-    </ul>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Lesson Title</th>
+            <th>Lesson type</th>
+            <th>Number of screens</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="(id, course) in courselist" >
+            <td>{{course.lessontitle}} </td>
+            <td>{{course.type}}</td>
+            <td>{{course.numscreens}}</td>
+            <td><a ui-sref="view.id({ id: id })" class="btn btn-default">Preview:</a> </td>
+            <td><a ui-sref="edit.id({id: id})" class="btn btn-default">Edit</a></td>
+        </tr>
+        </tbody>
+    </table>
+<p><button class="btn btn-default" ng-click="createNewLesson();">Create New Lesson Reinforcment</button></p>
 

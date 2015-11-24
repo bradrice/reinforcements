@@ -1,1 +1,8 @@
-<button  class="list-group-item"><span class="glyphicon glyphicon-remove inccorect" style="visibility: hidden;"></span> {{item}}</button>
+
+<div class="well">
+    <h4>{{screen.question}}</h4>
+    <div class="list-group">
+        <answer ng-repeat="item in screen.answers track by $index"></answer>
+    </div>
+    <button class="next_answer" class="btn btn-default" disabled="disabled" ng-click="nextScreen($index)">Next</button>
+</div>
