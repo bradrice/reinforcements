@@ -1,0 +1,12 @@
+<div class="well">
+    <label for="q{{$index}}">Question</label>
+    <input type="text" ng-model="screen.question" id="q{{$index}}" class="form-control" />
+    <h4>{{screen.question}}</h4>
+    <div class="list-group form-inline">
+        <div>Correct? - Answer</div>
+        <addanswer ng-repeat="answer in screen.answers" index="{{$index}}"></addanswer>
+        <div class="form-group">
+            <button ng-click="addScreen();">Add Screen</button>
+        </div>
+    </div>
+</div>

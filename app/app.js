@@ -7,18 +7,20 @@ var myApp = angular.module('myApp', [
     'myApp.view',
     'myApp.quizlist',
     'myApp.edit',
-    "firebase"
+    "firebase",
+    'myApp.add',
+    'ui.sortable'
 ]
 );
 
 myApp.constant('FIREBASE_URI', 'https://tureinforcements.firebaseio.com/');
 
-myApp.factory("getCourseService", ['$firebaseObject', 'FIREBASE_URI',  function GetCourse($firebaseObject, FIREBASE_URI){
+myApp.factory("getCourseService", ['$firebaseArray', 'FIREBASE_URI',  function GetCourse($firebaseArray, FIREBASE_URI){
     var ref = new Firebase(FIREBASE_URI);
-    var items = $firebaseObject(ref);
+    var items = $firebaseArray(ref);
 
-    var getItems = function () {
-        return items;
+    var getItems = function (id) {
+            return items;
     };
 
     var addItem = function (item) {
@@ -33,32 +35,16 @@ myApp.factory("getCourseService", ['$firebaseObject', 'FIREBASE_URI',  function 
         items.$remove(id);
     };
 
-    //var getItem = function (id) {
-    //    getItems();
-    //    items.$loaded().then(function(x) {
-    //        var data = x.$getRecord(id);
-    //        console.log(data);
-    //    }).catch(function(error) {
-    //        console.log("Error:", error);
-    //    });
-    //};
-    //
-    //var updateChildItem = function (itemId, item) {
-    //    return $firebaseObject(ref.child('items').child(itemId)).update(item);
-    //};
-    //
-    //var deleteChildItem = function (item) {
-    //    return items.$remove(item);
-    //};
+    var getItem = function(id) {
+        return items.$getRecord(id);
+    }
 
     return {
         getItems: getItems,
         addItem: addItem,
         updateItem: updateItem,
-        removeItem: removeItem
-        //getItem: getItem,
-        //updateChildItem: updateChildItem,
-        //deleteChildItem: deleteChildItem
+        removeItem: removeItem,
+        getItem: getItem
     }
 }]);
 
@@ -133,6 +119,16 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
             url: "/:id",
             templateUrl: "edit/item.html",
             controller: "EditCtrl"
+        })
+        .state('add', {
+            url: "/add",
+            templateUrl: "add/add.html",
+            controller: 'AddCtrl'
+        })
+        .state('add.id', {
+            url: "/:id",
+            templateUrl: "add/item.html",
+            controller: "AddCtrl"
         });
 })
     .constant('AUTH_EVENTS', {

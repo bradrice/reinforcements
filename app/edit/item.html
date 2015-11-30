@@ -1,3 +1,5 @@
 <h4>{{id}}</h4>
-<editscreen ng-repeat="screen in data.screens" index="{{$index}}" ng-model="models.success"></editscreen>
-<input type="submit" value="Save" ng-click="saveScreen(id)" class="btn btn-default"/>
+<ng-form>
+    <editscreen ng-repeat="screen in data.screens" index="{{$index}}" ng-model="models.success"></editscreen>
+    <button ng-click="saveScreen(id)" class="btn btn-default">Save</button>
+</ng-form>

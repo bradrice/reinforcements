@@ -14,11 +14,30 @@ button.list-group-item.correct {
 }
 
 screen div.well, div.congratulations {
-  background-color: #718EA4;
+  height: 400px;
+  background-color: #D3E0E6;
   .list-group-item:last-child {
     opacity: .8;
   }
   h1, h2, h4 {
     color: #fff;
+    background-color: #718EA4;
+    padding: 8px;
   }
+}
+
+div#view {
+  @include display-flex;
+  @include flex-direction(column);
+  height: 100vh;
+}
+
+div#main {
+  @include flex-grow(1);
+}
+
+footer {
+  background-color: #eee;
+  padding: 1em;
+  height: 80px;
 }

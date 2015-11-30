@@ -1,0 +1,23 @@
+<h2>Add new lesson</h2>
+<form id="addnewForm">
+    <div class="form-group">
+        <lable for="lessontitle">Lesson title</lable>
+        <input type="text" class="form-control" name="lessontitle" ng-model="newItem.lessontitle" />
+    </div>
+    <div class="form-group">
+        <label style="display:block;">Type</label>
+        <label for="multi" class="radio-inline">
+        <input type="radio" ng-model="newItem.type" id="multi" value="multi" />Multiple choice</label>
+        <label for="order" class="radio-inline">
+        <input type="radio" ng-model="newItem.type" id="order" value="order" />Order</label>
+        <label for="tf" class="radio-inline">
+    <input type="radio" ng-model="newItem.type" id="tf" value="tf" />True/False</label>
+    </div>
+   <!--<div class="form-group">-->
+       <!--<select name="numscreens" id="numscreens" ng-model="models.numscreens" ng-model"newItem.numscreens">-->
+           <!--<option ng-repeat="option in [1,2,3,4,5,6]" value="{{option}}" >{{option}}</option>-->
+       <!--</select>-->
+   <!--</div>-->
+    <addscreen ng-repeat="screen in newItem.screens"></addscreen>
+    <input type="submit" value="Save" ng-click="saveLesson();" class="btn btn-default"/>
+</form>

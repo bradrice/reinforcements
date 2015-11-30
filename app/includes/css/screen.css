@@ -14,13 +14,38 @@ button.list-group-item.correct {
 
 /* line 16, ../scss/screen.scss */
 screen div.well, div.congratulations {
-  background-color: #718EA4;
+  height: 400px;
+  background-color: #D3E0E6;
 }
-/* line 18, ../scss/screen.scss */
+/* line 19, ../scss/screen.scss */
 screen div.well .list-group-item:last-child, div.congratulations .list-group-item:last-child {
   opacity: .8;
 }
-/* line 21, ../scss/screen.scss */
+/* line 22, ../scss/screen.scss */
 screen div.well h1, screen div.well h2, screen div.well h4, div.congratulations h1, div.congratulations h2, div.congratulations h4 {
   color: #fff;
+  background-color: #718EA4;
+  padding: 8px;
+}
+
+/* line 29, ../scss/screen.scss */
+div#view {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* line 35, ../scss/screen.scss */
+div#main {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+}
+
+/* line 39, ../scss/screen.scss */
+footer {
+  background-color: #eee;
+  padding: 1em;
+  height: 80px;
 }
